@@ -1,3 +1,6 @@
 .DS_Store
 __pycache__
 data
+ccmgp.egg-info/
+dist/
+build/
