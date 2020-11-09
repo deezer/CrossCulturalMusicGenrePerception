@@ -15,6 +15,8 @@ DATA_DIR = '../../data/'
 GRAPH_PATH = ''.join([DATA_DIR, 'filtered_dbp_graph.graphml'])
 # Relative path to the cleaned corpus
 CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
+# Relative path to the unprocessed corpus file
+RAW_CORPUS_FILE_PATH = ''.join([DATA_DIR, 'musical_items.csv'])
 # Relative path to the folder containing the data folds
 FOLDS_DIR = ''.join([DATA_DIR, '/folds/'])
 # Relative path to the folder with multilingual embeddings based on fastText
@@ -36,6 +38,8 @@ GOOGLETRANS_DIR = ''.join([DATA_DIR, 'google_trans/'])
 GRAPH = None
 # Tags per language based on the graph
 TAG_PER_LANG = None
+# the number of folds in cross-validation
+NO_FOLDS = 3
 
 # Languages supported
 langs = ['en', 'nl', 'fr', 'es', 'cs', 'ja']
@@ -186,15 +190,13 @@ def get_genre_rels_filter(lang):
     return cond
 
 
-def get_genre_list_filter(seeds, start, end):
-    """ Helper to format the part of the query used to collect the DBpedia music genre graph; it is used for pagination
-    :param seeds: the music genres to be used for crawling
-    :param start: the start index of the music genres to be included
-    :param start: the end index of the music genres to be included
+def get_seeds_filter(seeds):
+    """Helper to format the part of the query which retrieves music genres for a seed list of music items provided through their URLs
+    :param seeds: seed music items
     :return: the formatted part of query which will be joined to the main query
     """
     list_genres_str = ''
-    for g in seeds[start:end]:
+    for g in seeds:
         if not g.startswith('http'):
             continue
         list_genres_str += ''.join(['<', g, '>, '])
