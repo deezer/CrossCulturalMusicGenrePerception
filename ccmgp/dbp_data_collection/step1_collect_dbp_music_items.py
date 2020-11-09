@@ -4,8 +4,8 @@ import uuid
 from string import Template
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-import ccmgp.utils as utils
-from ccmgp.utils import langs
+import ccmgp.utils.utils as utils
+from ccmgp.utils.utils import langs
 
 opj = os.path.join
 
@@ -81,7 +81,7 @@ else:
     print("Directory ", out_dir, " already exists")
 
 # SPARQL query template
-qt_alias = Template("""SELECT ?entity, ?alias{{
+query_template = Template("""SELECT ?entity, ?alias{{
         SELECT ?entity, ?alias
             WHERE {
                 ?entity rdf:type <http://dbpedia.org/ontology/$entity>.
