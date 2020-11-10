@@ -13,6 +13,10 @@ wakati = MeCab.Tagger("-Owakati")
 DATA_DIR = '../../data/'
 # Relative path to the filtered music genre graph
 GRAPH_PATH = ''.join([DATA_DIR, 'filtered_dbp_graph.graphml'])
+# Relative path to the crawled, unprocessed music genre graph
+RAW_GRAPH_PATH = ''.join([DATA_DIR, 'dbp_multigraph.graphml'])
+# Relative path to the folders where ontologies for each pair of languages are saved as networkx graphs
+GRAPH_DIR = ''.join([DATA_DIR, 'graphs/'])
 # Relative path to the cleaned corpus
 CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
 # Relative path to the unprocessed corpus file
@@ -204,7 +208,7 @@ def get_seeds_filter(seeds):
     return list_genres_str
 
 
-def genres_per_lang(df, min_count=1):
+def corpus_genres_per_lang(df, min_count=1):
     """Get corpus genres per language which appear at least min_count times
     :param df: the corpus
     :param min_count: number of times a genre should appear, default 1
@@ -230,7 +234,7 @@ def all_formatted_genres(df, norm_tags=True, as_set=True):
     :param as_set: specifies if the results is a dictionary with genres per language or a set containing all multilingual genres
     :return: the corpus music genre names
     """
-    genres = genres_per_lang(df)
+    genres = corpus_genres_per_lang(df)
     all_genres = {}
     for lang in genres:
         all_genres[lang] = set()
