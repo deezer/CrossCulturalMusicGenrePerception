@@ -5,7 +5,7 @@ import ccmgp.utils.utils as utils
 
 from composition_emb_generators import TransformerEmbeddingGenerator
 
-out_dir = utils.COMP_FT_EMB_DIR
+out_dir = utils.COMP_EMB_DIR
 langs = utils.langs
 emb_composition_types = utils.emb_composition_types
 for model_type in ['xlm', 'bert']:
