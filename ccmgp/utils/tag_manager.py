@@ -1,4 +1,4 @@
-import utils
+import ccmgp.utils as utils
 from sklearn.preprocessing import MultiLabelBinarizer
 
 import MeCab
