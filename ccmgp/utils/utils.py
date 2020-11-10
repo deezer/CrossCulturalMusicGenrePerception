@@ -23,12 +23,14 @@ CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
 RAW_CORPUS_FILE_PATH = ''.join([DATA_DIR, 'musical_items.csv'])
 # Relative path to the folder containing the data folds
 FOLDS_DIR = ''.join([DATA_DIR, '/folds/'])
+# Relative path to the folder with compositional multilingual embeddings
+COMP_EMB_DIR = ''.join([DATA_DIR, 'composed_embs/'])
 # Relative path to the folder with multilingual embeddings based on fastText
-COMP_FT_EMB_DIR = ''.join([DATA_DIR, 'composed_embs/ft/'])
+COMP_FT_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'ft/'])
 # Relative path to the folder with multilingual embeddings based on the XLM's lookup table
-COMP_XLM_EMB_DIR = ''.join([DATA_DIR, 'composed_embs/xlm/'])
+COMP_XLM_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'xlm/'])
 # Relative path to the folder with multilingual embeddings based on the mBERT's lookup table
-COMP_BERT_EMB_DIR = ''.join([DATA_DIR, 'composed_embs/bert/'])
+COMP_BERT_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'bert/'])
 # Relative path to the folder with multilingual embeddings based on LASER
 LASER_EMB_DIR = ''.join([DATA_DIR, 'laser_embs/'])
 # Relative path to the folder with multilingual embeddings obtained with contextual language models
