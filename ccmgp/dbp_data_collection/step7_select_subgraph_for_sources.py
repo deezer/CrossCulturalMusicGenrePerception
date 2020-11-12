@@ -16,7 +16,7 @@ G = nx.read_graphml(graph_file)
 lang_pairs = []
 for i in range(len(utils.langs) - 1):
     for j in range(i + 1, len(utils.langs)):
-        lang_pairs.append([utils.langs[i], utils.langs[j]])
+        lang_pairs.append(sorted([utils.langs[i], utils.langs[j]]))
 
 for sources in lang_pairs:
     # First save the partially aligned graphs for each language pair
