@@ -11,6 +11,7 @@ from ccmgp.mgenre_embedding.mappers import RetrofitEmbsMapper
 
 from datetime import datetime
 startTime = datetime.now()
+
 for source in utils.langs:
     for target in utils.langs:
         if source not in ['en', 'ja']:
