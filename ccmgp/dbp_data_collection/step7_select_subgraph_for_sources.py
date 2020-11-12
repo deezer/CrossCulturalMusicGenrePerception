@@ -3,7 +3,7 @@ import networkx as nx
 
 from ccmgp.utils import utils
 
-graph_file = utils.RAW_GRAPH_PATH
+graph_file = utils.GRAPH_PATH
 graph_dir = utils.GRAPH_DIR
 if not os.path.exists(graph_dir):
     os.mkdir(graph_dir)

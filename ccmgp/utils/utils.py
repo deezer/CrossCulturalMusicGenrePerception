@@ -26,11 +26,11 @@ FOLDS_DIR = ''.join([DATA_DIR, '/folds/'])
 # Relative path to the folder with compositional multilingual embeddings
 COMP_EMB_DIR = ''.join([DATA_DIR, 'composed_embs/'])
 # Relative path to the folder with multilingual embeddings based on fastText
-COMP_FT_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'ft/'])
+COMP_FT_EMB_DIR = ''.join([COMP_EMB_DIR, 'ft/'])
 # Relative path to the folder with multilingual embeddings based on the XLM's lookup table
-COMP_XLM_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'xlm/'])
+COMP_XLM_EMB_DIR = ''.join([COMP_EMB_DIR, 'xlm/'])
 # Relative path to the folder with multilingual embeddings based on the mBERT's lookup table
-COMP_BERT_EMB_DIR = ''.join([DATA_DIR, COMP_EMB_DIR, 'bert/'])
+COMP_BERT_EMB_DIR = ''.join([COMP_EMB_DIR, 'bert/'])
 # Relative path to the folder with multilingual embeddings based on LASER
 LASER_EMB_DIR = ''.join([DATA_DIR, 'laser_embs/'])
 # Relative path to the folder with multilingual embeddings obtained with contextual language models
@@ -51,8 +51,6 @@ NO_FOLDS = 3
 langs = ['en', 'nl', 'fr', 'es', 'cs', 'ja']
 # Strategies to compute multi-word expression embeddings from word/token embeddings
 emb_composition_types = ['avg', 'wavg']
-# Strategies in retrofitting; weighted is when edges are treated differently in the retrofitting algorithm depending on their types (see paper for detail)
-retro_emb_types = ['weighted', 'unweighted']
 # DBpedia types of music genre relations
 rels_types = {'wikiPageRedirects', 'stylisticOrigin', 'musicSubgenre', 'musicFusionGenre', 'derivative', 'sameAs'}
 # DBpedia types of music genre relations which signify equivalence
