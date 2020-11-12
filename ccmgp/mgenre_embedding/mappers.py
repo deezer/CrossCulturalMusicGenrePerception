@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 import ccmgp.utils.utils as utils
 import ccmgp.utils.tag_manager as tm
-from base_mapper import Mapper
+from ccmgp.mgenre_embedding.base_mapper import Mapper
 
 
 class EmbsMapper(Mapper):

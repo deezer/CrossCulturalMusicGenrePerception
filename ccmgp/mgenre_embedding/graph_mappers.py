@@ -1,7 +1,7 @@
 import numpy as np
 import networkx as nx
 
-from base_mapper import Mapper
+from ccmgp.mgenre_embedding.base_mapper import Mapper
 
 
 class GraphDirectMapper(Mapper):

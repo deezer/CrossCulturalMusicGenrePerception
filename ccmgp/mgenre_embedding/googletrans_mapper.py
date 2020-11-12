@@ -4,7 +4,7 @@ import pandas as pd
 
 import ccmgp.utils.utils as utils
 import ccmgp.utils.tag_manager as tagM
-from base_mapper import Mapper
+from ccmgp.mgenre_embedding.base_mapper import Mapper
 
 
 class GoogleTransMapper(Mapper):
