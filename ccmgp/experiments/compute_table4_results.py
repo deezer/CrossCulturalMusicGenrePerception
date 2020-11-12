@@ -39,6 +39,6 @@ for source in utils.langs:
                 eval_predicted = mapper.predict_scores(eval_data)
                 res = judge.compute_macro_metrics(eval_target, eval_predicted)
                 results.append(res)
-                print('auc_macro mean ', "%.1f" % (np.mean(results) * 100))
-                print('auc_macro std ', "%.1f" % (np.std(results) * 100))
+            print('auc_macro mean ', "%.1f" % (np.mean(results) * 100))
+            print('auc_macro std ', "%.1f" % (np.std(results) * 100))
 print(datetime.now() - startTime)
