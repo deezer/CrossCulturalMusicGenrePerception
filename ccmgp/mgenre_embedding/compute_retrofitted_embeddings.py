@@ -23,13 +23,16 @@ class RetroEmbeddingGenerator:
         self.embeddings = {}
         for lang in utils.langs:
             emb_path = os.path.join(input_embs_dir, lang, 'wavg.csv')
-            embs, _ = utils.read_embeddings(emb_path, sep=',')
+            embs, _ = utils.read_embeddings(emb_path, sep=',', binary=False)
             if lang in ignore_langs:
                 print(lang)
                 self.embeddings.update({lang + ':' + k: np.zeros(embs[k].shape) for k in embs})
             else:
                 self.embeddings.update({lang + ':' + k: embs[k] for k in embs})
-        self.name = os.path.basename(graph_file).split('.')[0]
+        if ignore_langs != []:
+            self.name = ''.join([os.path.basename(graph_file).split('.')[0], '_unknown_', '_'.join(ignore_langs)])
+        else:
+            self.name = os.path.basename(graph_file).split('.')[0]
         # Read graph
         self._read_graph(graph_file)
 
@@ -175,10 +178,8 @@ for pair in lang_pairs:
 
     # Retrofit on partially aligned graphs with the goal to learn embeddings
     # for one lang from scratch by knowing the embdddings of the other lang
-    """
-    graph_file = ''.join(["data/graphs/", pair[0], '_', pair[1], "_graph.graphml"])
+    graph_file = ''.join([utils.GRAPH_DIR, pair[0], '_', pair[1], "_graph.graphml"])
     retro_emb_generator = RetroEmbeddingGenerator(input_embs_dir, graph_file, ignore_langs=[pair[0]])
     retro_emb_generator.generate_embs(output_embs_dir)
     retro_emb_generator = RetroEmbeddingGenerator(input_embs_dir, graph_file, ignore_langs=[pair[1]])
     retro_emb_generator.generate_embs(output_embs_dir)
-    """
