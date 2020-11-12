@@ -167,6 +167,7 @@ df = pd.read_csv(corpus_file, index_col='id')
 # For each language as target split the data in folds
 for target in langs:
     sources = list(set(langs) - {target})
-    df_target = filter_data(df, target, sources)
-    out_file = os.path.join(out_dir, ''.join([target, "_", str(folds), "-fold.tsv"]))
-    iterative_split(df_target, out_file, target, folds)
+    for source in sources:
+        df_target = filter_data(df, target, [source])
+        out_file = os.path.join(out_dir, target + "_from_" + source + "_" + str(folds) + "-fold.tsv")
+        iterative_split(df_target, out_file, target, folds)
