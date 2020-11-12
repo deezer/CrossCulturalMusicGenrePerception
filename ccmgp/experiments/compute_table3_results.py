@@ -17,7 +17,7 @@ for source in utils.langs:
         if target == 'en':
             continue
         if source == target:
-               target = 'en'
+            target = 'en'
         print(source, '->', target)
         tm = tagM.TagManager.get([source], target)
 
@@ -45,4 +45,4 @@ for source in utils.langs:
                 results.append(res)
             print('auc_macro mean ', "%.1f" % (np.mean(results) * 100))
             print('auc_macro std ', "%.1f" % (np.std(results) * 100))
-    print(datetime.now() - startTime)
+print(datetime.now() - startTime)
