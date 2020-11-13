@@ -21,7 +21,7 @@ We further explain how to reproduce the results reported in the article (Table 1
 
 ## Run pipeline from scratch
 
-# Cite
+## Cite
 
 Please cite our paper if you use this code in your own work:
 
