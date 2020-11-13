@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import networkx as nx
 
 import ccmgp.utils.utils as utils
 from ccmgp.utils.judge import Judge
@@ -24,11 +25,15 @@ for source in utils.langs:
         dhelper = DataHelper(tm, dataset_path=datapath)
         judge = Judge()
         mappers = {}
-        mappers['dbp_nndist'] = GraphDistanceMapper(tm, utils.get_graph())
+        graph_file = ''.join([utils.GRAPH_DIR, '_'.join(sorted([source, target])), "_graph.graphml"])
+        G = nx.read_graphml(graph_file)
+        mappers['dbp_nndist'] = GraphDistanceMapper(tm, G)
         f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_unaligned_weighted.csv'])
         mappers['rfit_unaligned_ft_wavg'] = RetrofitEmbsMapper(tm, os.path.join(utils.RETRO_EMB_DIR, f), 'wavg')
-        f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_weighted.csv'])
-        mappers['rfit_aligned_ft_wavg'] = RetrofitEmbsMapper(tm, os.path.join(utils.RETRO_EMB_DIR, f), 'wavg')
+        f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_unknown', target, 'weighted.csv'])
+        mappers['rfit_aligned_ft_wavg_unknown_target'] = RetrofitEmbsMapper(tm, os.path.join(utils.RETRO_EMB_DIR, f), 'wavg')
+        f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_unknown', source, 'weighted.csv'])
+        mappers['rfit_aligned_ft_wavg_unknown_source'] = RetrofitEmbsMapper(tm, os.path.join(utils.RETRO_EMB_DIR, f), 'wavg')
         for name in mappers:
             print(name)
             mapper = mappers[name]

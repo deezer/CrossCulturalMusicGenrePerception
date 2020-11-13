@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import networkx as nx
 
 import ccmgp.utils.utils as utils
 from ccmgp.utils.judge import Judge
@@ -12,10 +13,8 @@ from ccmgp.mgenre_embedding.mappers import RetrofitEmbsMapper
 from datetime import datetime
 startTime = datetime.now()
 
-for source in utils.langs:
+for source in ['en', 'ja']:
     for target in utils.langs:
-        if source not in ['en', 'ja']:
-            continue
         if target == 'en':
             continue
         if source == target:
@@ -28,8 +27,10 @@ for source in utils.langs:
         dhelper = DataHelper(tm, dataset_path=datapath)
         judge = Judge()
         mappers = {}
-        mappers['dbp_nndist'] = GraphDistanceMapper(tm, utils.get_graph())
-        f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_weighted.csv'])
+        graph_file = ''.join([utils.GRAPH_DIR, '_'.join(sorted([source, target])), "_graph.graphml"])
+        G = nx.read_graphml(graph_file)
+        mappers['dbp_nndist'] = GraphDistanceMapper(tm, G)
+        f = '_'.join(['wavg'] + sorted([source, target]) + ['graph_unknown', target, 'weighted.csv'])
         mappers['rfit_aligned_ft_wavg'] = RetrofitEmbsMapper(tm, os.path.join(utils.RETRO_EMB_DIR, f), 'wavg')
         for name in mappers:
             print(name)
