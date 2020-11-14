@@ -92,7 +92,7 @@ For this reason, if experiments are run with new data collected at another momen
 - We can model the cross-lingual music genre annotation with high accuracy, especially when combining the two types of language-specific semantic representations, ontologies and distributed embeddings.
 - Using literal translation to produce cross-lingual annotations is limited as it does not consider the culturally divergent perception of concepts.
 - For short multi-word expressions, when comparing the representations derived from multilingual pre-trained models, the smooth inverse frequency averaging (Arora et al., 2017) of aligned word embeddings outperforms the other state of the art approaches.
-- When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant representations, often even better than when inferred with pretrained embedding models.
+- When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant representations.
 
 ## DBpedia data collection
 We further explain how to collect data from DBpedia.
