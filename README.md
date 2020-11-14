@@ -84,11 +84,20 @@ Experiment | *Table 3* | *Table 4* | *Table 5* | *Table 6* |
 | :--------: |:--------:|--------:|--------:|--------:|
 Time    | 1h10m | 10m | 1h20m | 43m |
 
-## Run pipeline from scratch
 
-### DBpedia data collection
+As previously mention, DBpedia changes over time. New music artists, works or bands could be added or some of the past ones could be removed. The annotations of music items with music genres could be modified too. Hence, these changes have an impact on the test corpus.
+Additionally, the music genre ontology could also evolve because music genres or music genre relations are added to or removed from DBpedia.
 
-### Music genre embedding
+For this reason, if experiments are run with new data collected at another moment from DBpedia, the macro-AUC scores may not be identical to the ones reported in the paper. However, we should still reach the same conclusions as those presented in the paper:
+- We can model the cross-lingual music genre annotation with high accuracy, especially when combining the two types of language-specific semantic representations, ontologies and distributed embeddings.
+- Using literal translation to produce cross-lingual annotations is limited as it does not consider the culturally divergent perception of concepts.
+- For short multi-word expressions, when comparing the representations derived from multilingual pre-trained models, the smooth inverse frequency averaging (Arora et al., 2017) of aligned word embeddings outperforms the other state of the art approaches.
+- When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant concept representations, often even better than when inferred with pretrained embedding models.
+
+## DBpedia data collection
+We further explain how to collect data from DBpedia.
+
+## Music genre embedding
 
 ## Cite
 
