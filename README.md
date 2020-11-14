@@ -44,7 +44,7 @@ The `data` folder contains the following data:
 - `transf_embs`: pre-computed music genre representations using contextualized language models (mBERT and XLM).
 - `laser_embs`: pre-computed music genre representations using LASER, a universal language agnostic sentence embedding model.
 - `retro_embs`: pre-computed music genre representations by retrofitting music genre distributed representations to music genre ontologies.
-- `google_trans`: csv files for each language, containing literal translation of the music genres in one language to all the other languages, obtained with Google Translate.
+- `google_trans`: csv files for each language, containing literal translations of music genres from one language to all the other five languages, obtained with Google Translate.
 
 ### Experiments
 
