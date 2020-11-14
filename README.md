@@ -9,11 +9,11 @@ The projects consists of three parts:
 
 We currently support six languages from four language families:
 - :gb: English (en)
-- :nl: Dutch (nl)
+- :netherlands: Dutch (nl)
 - :fr: French (fr)
 - :es: Spanish (es)
-- :cs: Czech (cs)
-- :ja: Japanese (ja)
+- :czech_republic: Czech
+- :jp: Japanese
 
 ## Installation
 
