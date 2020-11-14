@@ -66,13 +66,13 @@ cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
-Reproduce the results presented in *Table 5*:
+Reproduce the results presented in *Table 5*, found in *Appendix*:
 ```bash
 cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
-Reproduce the results presented in *Table 6*:
+Reproduce the results presented in *Table 6*, found in *Appendix*:
 ```bash
 cd ccmgp/experiments/
 python compute_table3_results.py
