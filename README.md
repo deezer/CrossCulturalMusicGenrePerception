@@ -202,11 +202,17 @@ Clone LASER:
 git clone https://github.com/facebookresearch/LASER.git
 ```
 
-Save in a separate file per language the normalized music genres, which can be obtained as follows:
-```python
-import ccmgp.utils.utils as utils
-from ccmgp.utils.tag_manager import TagManager
+Save in a separate file per language the normalized music genres, which can be obtained as follows (exemplified for *fr*):
+```bash
+cd ccmgp/utils/
+ipython
+```
 
+```python
+import utils
+from tag_manager import TagManager
+
+lang = 'fr'
 genres = utils.get_tags_for_source(lang)
 norm_genres = [TagManager.normalize_tag(g, ja=lang == 'ja') for g in genres]
 ```
@@ -247,7 +253,7 @@ if __name__ == "__main__":
 Copy the *LASER* embeddings in a dedicated folder per language, in the `data/laser_embs/` folder, under the name `laser.csv`, e.g.:
 ```bash
 mkdir data/laser_embs/en/
-cp ../LASER/tasks/embed/en_laser.vec data/laser_embs/en/laser.csv
+cp ../LASER/tasks/embed/en_laser.vec data/+|:/en/laser.csv
 ```
 
 ## Cite
