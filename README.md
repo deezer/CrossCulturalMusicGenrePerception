@@ -206,6 +206,7 @@ Save in a separate file per language the normalized music genres, which can be o
 ```python
 import ccmgp.utils.utils as utils
 from ccmgp.utils.tag_manager import TagManager
+
 genres = utils.get_tags_for_source(lang)
 norm_genres = [TagManager.normalize_tag(g, ja=lang == 'ja') for g in genres]
 ```
