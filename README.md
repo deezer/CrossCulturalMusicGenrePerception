@@ -256,7 +256,8 @@ mkdir data/laser_embs/en/
 cp ../LASER/tasks/embed/en_laser.vec data/+|:/en/laser.csv
 ```
 
-#### Use retrofitting to specialize pre-computed embeddings to the ontology and learn embeddings from scratch for one language when the another language is known
+#### Retrofit pre-computed embeddings to the ontology
+This script is also used to learn embeddings from scratch for one language when embeddings in another language and an aligned ontology are given.
 ```bash
 cd ccmgp/mgenre_embedding/
 python compute_retrofitted_embeddings.py
