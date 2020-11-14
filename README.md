@@ -263,6 +263,15 @@ cd ccmgp/mgenre_embedding/
 python compute_retrofitted_embeddings.py
 ```
 
+
+#### (Optional) Convert embedding text files in binary files
+Each mapper and script to generate embeddings uses `read_embeddings` in `utils.py` to read pre-computed embeddings.
+Depending on how embeddings are stored, the parameter `binary` of this function may need to be adjusted.
+```bash
+cd ccmgp/mgenre_embedding/
+python convert_csv_to_bin.py
+```
+
 ## Cite
 
 Please cite our paper if you use this code in your own work:
