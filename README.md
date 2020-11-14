@@ -211,7 +211,7 @@ genres = utils.get_tags_for_source(lang)
 norm_genres = [TagManager.normalize_tag(g, ja=lang == 'ja') for g in genres]
 ```
 
-Edit and run the `embed.sh` script in the LASER project to compute the embeddings (*INPUT-FILE* contains the normalized music genres in the *LANGUAGE* under consideration):
+Edit and run the `embed.sh` script in the `LASER` project to learn embeddings (`INPUT-FILE` contains normalized music genres in a specific `LANGUAGE`):
 ```bash
 cd tasks/embed/
 bash ./embed.sh INPUT-FILE LANGUAGE OUTPUT-FILE
