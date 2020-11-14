@@ -156,7 +156,7 @@ python step7_select_subgraph_for_sources.py
 ```
 Input: `filtered_dbp_graph.graphml`
 
-Output: the `graphs` folder; for each pair of language, the aligned ontology is saved as `lang1_lang2_graph.graphml` and the unaligned ontologies are saved as `lang1_lang2_graph_unaligned.graphml`
+Output: the `graphs` folder; for each language pair, the aligned ontology is saved as `lang1_lang2_graph.graphml` and the unaligned ontologies are saved as `lang1_lang2_graph_unaligned.graphml`
 
 ## Music genre embedding
 
