@@ -159,7 +159,7 @@ Input: `filtered_dbp_graph.graphml`
 Output: the `graphs` folder; for each language pair, the aligned ontology is saved in the `lang1_lang2_graph.graphml` file and the unaligned ontologies are saved in the `lang1_lang2_graph_unaligned.graphml` file.
 
 ## Music genre embedding
-This part relies on the successful collection of data from DBpedia. Further, we show how to generate multilingual music genre embeddings with the various strategies described in the paper.
+This part relies on the successful data collection from DBpedia. Further, we show how to generate multilingual music genre embeddings with various strategies as described in the paper.
 
 ### Compositionality functions applied to multilingual fastText vectors
 
