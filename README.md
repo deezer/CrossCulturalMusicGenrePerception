@@ -39,7 +39,12 @@ The `data` folder contains the following data:
 - `filtered_musical_items.csv`: the multilingual test corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered by removing music genres which did not appear at least 15 times (to ensure that each music genre appears 5 times in each of the 3 data splits in cross-validation).
 - `filtered_dbp_graph.graphml`: the multilingual DBpedia-based music genre ontology in a cleaned version . Tags that were not recognized as proper DBpedia resources and the connected components that did not contain at least a corpus music genre were removed. This ontology contain music genre relations of type *sameAs*, being thus partially aligned between languagues.
 - `folds`: the parallel corpus split in 3 folds in a stratified way for each language as target.
-- `graphs`: for each pair of languages, language-specific music genre ontologies unaligned (without the *sameAs* relation) and aligned (with the *sameAs* relation), extracted from the complete ontology `filtered_dbp_graph.graphml`. These graphs are used in retrofitting and by the DBpedia-based cross-lingual mappers (one based on direct translation and one based on graph geodesic distances).
+- `graphs`: for each pair of languages, language-specific music genre ontologies unaligned (without the *sameAs* relation) and aligned (with the *sameAs* relation), extracted from the complete ontology `filtered_dbp_graph.graphml`. These ontologies are used in retrofitting and by the DBpedia-based cross-lingual mappers (one based on direct translation and one based on graph geodesic distances).
+- `composed_embs`: pre-computed music genre representations with composition functions from static word embeddings.
+- `transf_embs`: pre-computed music genre representations using contextualized language models (mBERT and XLM).
+- `laser_embs`: pre-computed music genre representations using LASER, a universal language agnostic sentence embedding model.
+- `retro_embs`: pre-computed music genre representations by retrofitting music genre distributed representations to music genre ontologies.
+- `google_trans`: csv files for each language, containing literal translation of the music genres in one language to all the other languages, obtained with Google Translate.
 
 ### Experiments
 
