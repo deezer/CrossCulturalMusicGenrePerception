@@ -81,7 +81,7 @@ python compute_table3_results.py
 Expected running time (on a MacBook Pro 2.3GHz dual-core Intel Core i5):
 
      | `compute_table3_results.py` | `compute_table4_results.py` | `compute_table5_results.py` | `compute_table6_results.py` |
-| :--------: |:--------:|--------:|--------:|--------:|-------:|-------:|
+| :--------: |:--------:|--------:|--------:|--------:|
 Time    | 1h10m | 10m | 1h20m | 43m |
 
 ## Run pipeline from scratch
