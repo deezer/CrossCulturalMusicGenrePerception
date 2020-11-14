@@ -161,7 +161,7 @@ Output: the `graphs` folder; for each language pair, the aligned ontology is sav
 ## Music genre embedding
 This part relies on the successful data collection from DBpedia. Further, we show how to generate multilingual music genre embeddings with various strategies as described in the paper.
 
-### Compositionality functions applied to multilingual fastText vectors
+### Use compositionality functions applied to multilingual fastText vectors
 
 Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese. The next step is to align these multilingual word embeddings. Clone fastText:
 ```bash
@@ -182,6 +182,71 @@ Learn multilingual music genre embeddings:
 ```bash
 cd ccmgp/mgenre_embedding/
 python compute_compositional_ft_embeddings.py <folder with aligned fastText vectors>
+```
+
+### Use compositionality functions applied to vectors from mBERT and XLM's lookup tables
+```bash
+cd ccmgp/mgenre_embedding/
+python compute_compositional_transformer_embeddings.py
+```
+
+### Use contextualized language models as feature extractors
+```bash
+cd ccmgp/mgenre_embedding/
+python compute_transformer_embeddings.py
+```
+
+### Use LASER sentence embedding model
+Clone LASER:
+```bash
+git clone https://github.com/facebookresearch/LASER.git
+```
+
+Save in a separate file per language the normalized music genres, which can be obtained as follows:
+```python
+import ccmgp.utils.utils as utils
+from ccmgp.utils.tag_manager import TagManager
+genres = utils.get_tags_for_source(lang)
+norm_genres = [TagManager.normalize_tag(g, ja=lang == 'ja') for g in genres]
+```
+
+Edit and run the `embed.sh` script in the LASER project to compute the embeddings (*INPUT-FILE* contains the normalized music genres in the *LANGUAGE* under consideration):
+```bash
+cd tasks/embed/
+bash ./embed.sh INPUT-FILE LANGUAGE OUTPUT-FILE
+```
+
+Transform the raw embeddings in text files:
+```python
+import argparse
+import numpy as np
+import pandas as pd
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sents", required=True)
+    parser.add_argument("--embs", required=True)
+    parser.add_argument("--out", required=True)
+    args = parser.parse_args()
+    sents_file = args.sents
+    embs_file = args.embs
+    out_file = args.out
+
+    with open(sents_file, 'r') as _:
+        tags = [l.rstrip() for l in _.readlines()]
+
+    dim = 1024
+    X = np.fromfile(embs_file, dtype=np.float32, count=-1)
+    X.resize(X.shape[0] // dim, dim)
+
+    df = pd.DataFrame(X, index=tags)
+    df.to_csv(out_file, index=True, header=None)
+```
+
+Copy the LASER embeddings in a dedicated folder per language, in the `data/laser_embs` folder, under the name *laser.csv*, e.g.:
+```bash
+mkdir data/laser_embs/en/
+cp ../LASER/tasks/embed/en_laser.vec data/laser_embs/en/laser.csv
 ```
 
 ## Cite
