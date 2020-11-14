@@ -181,7 +181,7 @@ src_emb=<download folder>/cc.${s}.300.vec
 Learn multilingual music genre embeddings:
 ```bash
 cd ccmgp/mgenre_embedding/
-python compute_compositional_ft_embeddings.py <folder with the fastText aligned embeddings>
+python compute_compositional_ft_embeddings.py <folder with aligned fastText vectors>
 ```
 
 ## Cite
