@@ -161,7 +161,7 @@ Output: the `graphs` folder; for each language pair, the aligned ontology is sav
 ## Music genre embedding
 This part relies on the successful data collection from DBpedia. Further, we show how to generate multilingual music genre embeddings with various strategies as described in the paper.
 
-### Use compositionality functions applied to multilingual fastText vectors
+#### Use compositionality functions applied to multilingual fastText vectors
 
 Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese. The next step is to align these multilingual word embeddings. Clone fastText:
 ```bash
@@ -184,19 +184,19 @@ cd ccmgp/mgenre_embedding/
 python compute_compositional_ft_embeddings.py <folder with aligned fastText vectors>
 ```
 
-### Use compositionality functions applied to vectors from mBERT and XLM's lookup tables
+#### Use compositionality functions applied to vectors from mBERT and XLM's lookup tables
 ```bash
 cd ccmgp/mgenre_embedding/
 python compute_compositional_transformer_embeddings.py
 ```
 
-### Use contextualized language models as feature extractors
+#### Use contextualized language models as feature extractors
 ```bash
 cd ccmgp/mgenre_embedding/
 python compute_transformer_embeddings.py
 ```
 
-### Use LASER sentence embedding model
+#### Use LASER sentence embedding model
 Clone LASER:
 ```bash
 git clone https://github.com/facebookresearch/LASER.git
