@@ -217,7 +217,7 @@ cd tasks/embed/
 bash ./embed.sh INPUT-FILE LANGUAGE OUTPUT-FILE
 ```
 
-Transform the raw embeddings in text files:
+Transform raw embeddings in text files:
 ```python
 import argparse
 import numpy as np
@@ -244,7 +244,7 @@ if __name__ == "__main__":
     df.to_csv(out_file, index=True, header=None)
 ```
 
-Copy the LASER embeddings in a dedicated folder per language, in the `data/laser_embs` folder, under the name *laser.csv*, e.g.:
+Copy the *LASER* embeddings in a dedicated folder per language, in the `data/laser_embs/` folder, under the name `laser.csv`, e.g.:
 ```bash
 mkdir data/laser_embs/en/
 cp ../LASER/tasks/embed/en_laser.vec data/laser_embs/en/laser.csv
