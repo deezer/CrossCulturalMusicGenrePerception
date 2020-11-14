@@ -159,6 +159,32 @@ Input: `filtered_dbp_graph.graphml`
 Output: the `graphs` folder; for each language pair, the aligned ontology is saved in the `lang1_lang2_graph.graphml` file and the unaligned ontologies are saved in the `lang1_lang2_graph_unaligned.graphml` file.
 
 ## Music genre embedding
+This part relies on the successful collection of data from DBpedia. Further, we show how to generate multilingual music genre embeddings with the various strategies described in the paper.
+
+### Compositionality functions applied to aligned multilingual fastText word vectors
+
+Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese.
+
+The next step is to align these multilingual word embeddings. Clone fastText:
+```bash
+git clone https://github.com/facebookresearch/fastText.git
+```
+
+Navigate to the *alignment* module and adjust the *example.sh* script for each language pair.
+In particular, the target language is always set to *en*:
+```bash
+t=${2:-en}
+```
+Also the *src_emb* and *tgt_emb* variables should point to the Common Crawl-based vectors previously downloaded, as in the following example:
+```bash
+src_emb=cc.${s}.300.vec
+```
+
+Learn multilingual music genre embeddings:
+```bash
+cd ccmgp/mgenre_embedding/
+python compute_compositional_ft_embeddings.py <folder with the fastText aligned embeddings>
+```
 
 ## Cite
 
