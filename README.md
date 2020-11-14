@@ -161,7 +161,7 @@ Output: the `graphs` folder; for each language pair, the aligned ontology is sav
 ## Music genre embedding
 This part relies on the successful collection of data from DBpedia. Further, we show how to generate multilingual music genre embeddings with the various strategies described in the paper.
 
-### Compositionality functions applied to aligned multilingual fastText word vectors
+### Compositionality functions applied to multilingual fastText vectors
 
 Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese.
 
