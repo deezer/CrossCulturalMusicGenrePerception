@@ -163,9 +163,7 @@ This part relies on the successful collection of data from DBpedia. Further, we 
 
 ### Compositionality functions applied to multilingual fastText vectors
 
-Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese.
-
-The next step is to align these multilingual word embeddings. Clone fastText:
+Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, Dutch, French, Spanish, Czech and Japanese. The next step is to align these multilingual word embeddings. Clone fastText:
 ```bash
 git clone https://github.com/facebookresearch/fastText.git
 ```
