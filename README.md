@@ -168,14 +168,14 @@ Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.ht
 git clone https://github.com/facebookresearch/fastText.git
 ```
 
-Navigate to the *alignment* module and adjust the *example.sh* script for each language pair.
+Navigate to the `alignment` module, adjust and run the `example.sh` script for each language pair.
 In particular, the target language is always set to *en*:
 ```bash
 t=${2:-en}
 ```
-Also the *src_emb* and *tgt_emb* variables should point to the Common Crawl-based vectors previously downloaded, as in the following example:
+Also the `src_emb` and `tgt_emb` variables should point to the Common Crawl-based vectors previously downloaded, as in the following example:
 ```bash
-src_emb=cc.${s}.300.vec
+src_emb=<download folder>/cc.${s}.300.vec
 ```
 
 Learn multilingual music genre embeddings:
