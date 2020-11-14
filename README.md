@@ -184,7 +184,7 @@ cd ccmgp/mgenre_embedding/
 python compute_compositional_ft_embeddings.py <folder with aligned fastText vectors>
 ```
 
-#### Use compositionality functions applied to vectors from mBERT and XLM's lookup tables
+#### Use compositionality functions applied to vectors from transformers' lookup tables
 ```bash
 cd ccmgp/mgenre_embedding/
 python compute_compositional_transformer_embeddings.py
