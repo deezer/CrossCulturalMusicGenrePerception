@@ -56,25 +56,21 @@ python compute_corpus_graph_statistics.py
 
 Reproduce the results presented in *Table 3*:
 ```bash
-cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
 Reproduce the results presented in *Table 4*:
 ```bash
-cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
 Reproduce the results presented in *Table 5*, found in *Appendix*:
 ```bash
-cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
 Reproduce the results presented in *Table 6*, found in *Appendix*:
 ```bash
-cd ccmgp/experiments/
 python compute_table3_results.py
 ```
 
@@ -95,7 +91,72 @@ For this reason, if experiments are run with new data collected at another momen
 - When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant representations.
 
 ## DBpedia data collection
-We further explain how to collect data from DBpedia.
+We further explain how to collect data from DBpedia. Each step uses the output of the previous step as input. Therefore, it is important that the previous step finishes correctly. A problem that could appear is that DBpedia in a certain language could be temporarily down. In this case, there are two options:
+- wait until DBpedia is again up and could be queried correctly.
+- remove the concerned language from `langs` in `utils.py`.
+
+#### Step 1: collect DBpedia music artists, bands and music works
+```bash
+cd ccmgp/dbp_data_collection
+python step1_collect_dbp_music_items.py
+```
+
+Input: nothing
+
+Output: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
+
+#### Step 2: collect DBpedia-based music genres annotations for music items
+```bash
+python step2_collect_dbp_genres_for_music_items.py
+```
+
+Input: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
+
+Output: `musical_items.csv`
+
+#### Step 3: filter the corpus by removing music genres that do not appear at least 15 times
+```bash
+python step3_filter_corpus.py
+```
+
+Input: `musical_items.csv`
+
+Output: `filtered_musical_items.csv`
+
+#### Step 4: split corpus in 3 folds for each language
+```bash
+python step4_prepare_folds_eval.py
+```
+
+Input: `filtered_musical_items.csv`
+
+Output: the files of type `[fr|es|en]_4-fold.tsv`) in the `folds` folder
+
+#### Step 5 collect the multilingual DBpedia-based music genre ontology
+```bash
+python step5_collect_dbp_mgenre_ontology.py
+```
+
+Input: `filtered_musical_items.csv`
+
+Output: `dbp_multigraph.graphml`
+
+#### Step 6: clean the raw multilingual DBpedia-based music genre ontology
+```bash
+python step6_clean_dbp_ontology.py
+```
+
+Input: `dbp_multigraph.graphml`
+
+Output: `filtered_dbp_graph.graphml`
+
+#### Step 7: extract aligned and unaligned language-specific music genre ontologies
+```bash
+python step7_select_subgraph_for_sources.py
+```
+Input: `filtered_dbp_graph.graphml`
+
+Output: the `graphs` folder; for each pair of language, the aligned ontology is saved as `lang1_lang2_graph.graphml` and the unaligned ontologies are saved as `lang1_lang2_graph_unaligned.graphml`
 
 ## Music genre embedding
 
