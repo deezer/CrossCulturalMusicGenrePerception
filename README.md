@@ -80,7 +80,7 @@ python compute_table3_results.py
 
 Expected running time (on a MacBook Pro 2.3GHz dual-core Intel Core i5):
 
- *Table 3* | *Table 4* | *Table 5* | *Table 6* |
+ | *Table 3* | *Table 4* | *Table 5* | *Table 6* |
 | :--------: |:--------:|--------:|--------:|--------:|
 Time    | 1h10m | 10m | 1h20m | 43m |
 
