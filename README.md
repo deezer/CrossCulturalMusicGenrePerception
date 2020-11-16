@@ -265,7 +265,7 @@ python compute_retrofitted_embeddings.py
 
 
 #### (Optional) Convert embedding text files to binary files
-All learned embeddings in the `data` folder are currently transformed in in binary files in order to save space:
+All learned embeddings in the `data` folder are currently transformed in binary files in order to save disk space:
 ```bash
 cd ccmgp/mgenre_embedding/
 python convert_csv_to_bin.py
