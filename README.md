@@ -130,7 +130,7 @@ python step4_prepare_folds_eval.py
 
 Input: `filtered_musical_items.csv`
 
-Output: the files of type `cs_from_en_3-fold.tsv` in the `data/folds/` folder
+Output: the files of type `lang1_lang2_en_3-fold.tsv` in the `data/folds/` folder
 
 #### Step 5 collect the multilingual DBpedia-based music genre ontology
 ```bash
@@ -250,10 +250,10 @@ if __name__ == "__main__":
     df.to_csv(out_file, index=True, header=None)
 ```
 
-Copy the *LASER* embeddings in a dedicated folder per language, in the `data/laser_embs/` folder, under the name `laser.csv`, e.g.:
+Copy the *LASER* embeddings in a dedicated folder per language, in the `data/laser_embs/` folder, under the name `laser.csv`, e.g. for *en*:
 ```bash
 mkdir data/laser_embs/en/
-cp ../LASER/tasks/embed/en_laser.vec data/+|:/en/laser.csv
+cp ../LASER/tasks/embed/en_laser.vec data/laser_embs/en/laser.csv
 ```
 
 #### Retrofit pre-computed embeddings to the ontology
