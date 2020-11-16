@@ -272,7 +272,7 @@ cd ccmgp/mgenre_embedding/
 python convert_csv_to_bin.py
 ```
 
-#### (Optional) Updathe the files used the Google Translate mapper
+#### (Optional) Update the files with translated tags used by the Google Translate mapper
 If this mapper is used and new music genres are collected in the DBpedia data collection phase, then the files in `data/google_trans/` should be updated. The files contain only the music genres present in the test corpus.
 
 ## Cite
