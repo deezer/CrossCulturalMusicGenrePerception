@@ -1,6 +1,6 @@
 # Modeling the Music Genre Perception across Language-Bound Cultures
 
-This repository provides Python code to reproduce the experiments from the article [**Modeling the Music Genre Perception across Language-Bound Cultures**](https://www.aclweb.org/anthology/2020.emnlp-main.293/) presented at the [EMNLP 2020](https://2020.emnlp.org/) conference.
+This repository provides Python code to reproduce the experiments from the article [**Modeling the Music Genre Perception across Language-Bound Cultures**](https://www.aclweb.org/anthology/2020.emnlp-main.386/) presented at the [EMNLP 2020](https://2020.emnlp.org/) conference.
 
 The projects consists of three parts:
 - `ccmgp/dbp_data_collection`: collect test corpus for experiments and multilingual music genre ontology from DBpedia (see [DBpedia data collection](#dbpedia-data-collection) for more details).
