@@ -130,7 +130,7 @@ python step4_prepare_folds_eval.py
 
 Input: `filtered_musical_items.csv`
 
-Output: the files of type `[fr|es|en]_4-fold.tsv`) in the `folds` folder
+Output: the files of type `cs_from_en_3-fold.tsv` in the `data/folds/` folder
 
 #### Step 5 collect the multilingual DBpedia-based music genre ontology
 ```bash
