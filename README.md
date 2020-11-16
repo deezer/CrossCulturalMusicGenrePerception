@@ -265,12 +265,15 @@ python compute_retrofitted_embeddings.py
 
 
 #### (Optional) Convert embedding text files in binary files
-Each mapper and script to generate embeddings uses `read_embeddings` in `utils.py` to read pre-computed embeddings.
-Depending on how embeddings are stored, the parameter `binary` of this function may need to be adjusted.
+Each mapper and script to generate embeddings uses `read_embeddings` from `utils.py` to read pre-computed embeddings.
+Depending on how embeddings are stored, the parameter `binary` of this function may need to be adjusted every time is called in a mapper of embedding generator.
 ```bash
 cd ccmgp/mgenre_embedding/
 python convert_csv_to_bin.py
 ```
+
+#### (Optional) Updathe the files used the Google Translate mapper
+If this mapper is used and new music genres are collected in the DBpedia data collection phase, then the files in `data/google_trans/` should be updated. The files contain only the music genres present in the test corpus.
 
 ## Cite
 
