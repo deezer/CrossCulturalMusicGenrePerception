@@ -31,7 +31,7 @@ We further explain how to reproduce the results reported in the article (Table 1
 ### Download data
 Data collected from DBpedia, namely the test corpus and the language-specific music genre ontologies, could change over time. Consequently, we provide for download the version used in the experiments reported in the paper. We also include the music genre representations pre-computed with various approaches, as described in our work. More details about how to collect data from DBpedia and learn music genre embeddings from scratch can be found in [DBpedia data collection](#dbpedia-data-collection) and [Music genre embedding](#music-genre-embedding) respectively.
 
-The data is available for download [here](). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `ccmgp/utils/utils.py` should be changed accordingly.
+The data is available for download [here](https://zenodo.org/record/4275315#.X7JGXS1h0cg). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `ccmgp/utils/utils.py` should be changed accordingly.
 
 The `data` folder contains the following data:
 - `[ja|cs|nl|fr|es|en]_entities.txt`: music artists, works and bands from DBpedia in the language identified by the code.
