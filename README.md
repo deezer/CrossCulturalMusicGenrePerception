@@ -38,9 +38,9 @@ The `data` folder contains the following data:
 - `musical_items_ids.csv`: mapping of DBpedia-based music items on unique identifiers.
 - `filtered_musical_items.csv`: the multilingual test corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered by removing music genres which did not appear at least 15 times (to ensure that each music genre appears 5 times in each of the 3 data splits in cross-validation).
 - `filtered_dbp_graph.graphml`: the multilingual DBpedia-based music genre ontology in a cleaned version . Tags that were not recognized as proper DBpedia resources and the connected components that did not contain at least a corpus music genre were removed. This ontology contain music genre relations of type *sameAs*, being thus partially aligned between languagues.
-- `folds`: the parallel corpus split in 3 folds in a stratified way for each language as target.
+- `folds`: the test corpus split in 3 folds in a stratified way for each language as target.
 - `graphs`: for each pair of languages, language-specific music genre ontologies unaligned (without the *sameAs* relation) and aligned (with the *sameAs* relation), extracted from the complete ontology `filtered_dbp_graph.graphml`. These ontologies are used in retrofitting and by the DBpedia-based cross-lingual mappers (one based on direct translation and one based on graph geodesic distances).
-- `composed_embs`: pre-computed music genre representations with composition functions from static word embeddings.
+- `composed_embs`: pre-computed music genre representations with compositionality functions from static word embeddings.
 - `transf_embs`: pre-computed music genre representations using contextualized language models (mBERT and XLM).
 - `laser_embs`: pre-computed music genre representations using LASER, a universal language agnostic sentence embedding model.
 - `retro_embs`: pre-computed music genre representations by retrofitting music genre distributed representations to music genre ontologies.
@@ -81,14 +81,14 @@ Experiment | *Table 3* | *Table 4* | *Table 5* | *Table 6* |
 Time    | 1h10m | 10m | 1h20m | 43m |
 
 
-As previously mention, DBpedia changes over time. New music artists, works or bands could be added or some of the past ones could be removed. The annotations of music items with music genres could be modified too. Hence, these changes have an impact on the test corpus.
+As previously mentioned, DBpedia changes over time. New music artists, works or bands could be added or some of the past ones could be removed. The annotations of music items with music genres could be modified too. Hence, these changes have an impact on the test corpus.
 Additionally, the music genre ontology could also evolve because music genres or music genre relations are added to or removed from DBpedia.
 
 For this reason, if experiments are run with new data collected at another moment from DBpedia, the macro-AUC scores may not be identical to the ones reported in the paper. However, we should still reach the same conclusions as those presented in the paper:
-- We can model the cross-lingual music genre annotation with high accuracy, especially when combining the two types of language-specific semantic representations, ontologies and distributed embeddings.
-- Using literal translation to produce cross-lingual annotations is limited as it does not consider the culturally divergent perception of concepts.
-- For short multi-word expressions, when comparing the representations derived from multilingual pre-trained models, the smooth inverse frequency averaging (Arora et al., 2017) of aligned word embeddings outperforms the other state of the art approaches.
-- When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant representations.
+- *We can model the cross-lingual music genre annotation with high accuracy, especially when combining the two types of language-specific semantic representations, ontologies and distributed embeddings. However, the results vary per pair of languages.*
+- *Using literal translation to produce cross-lingual annotations is limited as it does not consider the culturally divergent perception of concepts*.
+- *For short multi-word expressions, when comparing the representations derived from multilingual pre-trained models, the smooth inverse frequency averaging (Arora et al., 2017) of aligned word embeddings outperforms the other state of the art approaches.*
+- *When aligned multilingual concept ontologies are available and concept embeddings in one language are known, embedding learning from scratch with retrofitting for the other language leads to very relevant representations.*
 
 ## DBpedia data collection
 We further explain how to collect data from DBpedia. Each step uses the output of the previous step as input. Therefore, it is important that the previous step finishes correctly. A problem that could appear is that DBpedia in a certain language could be temporarily down. In this case, there are two options:
